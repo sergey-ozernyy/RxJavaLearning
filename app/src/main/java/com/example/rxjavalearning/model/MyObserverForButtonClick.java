@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rxjavalearning.MainActivity;
+import com.example.rxjavalearning.view.RxButtonClickFragment;
 
 import java.time.Instant;
 
@@ -28,10 +29,10 @@ public class MyObserverForButtonClick {
             String result = nowInInstant.toString() + " or " + nowInSecond + " seconds in Unix timestamp";
 
             //Добавляем строку в массив
-            MainActivity.listValues.add(result);
+            RxButtonClickFragment.listValues.add(result);
 
             //Обновляем адаптер
-            MainActivity.adapter.notifyDataSetChanged();
+            RxButtonClickFragment.adapter.notifyDataSetChanged();
         }
 
         @Override

@@ -1,6 +1,8 @@
 package com.example.rxjavalearning;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -26,33 +28,15 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
-    ListView listView;
-
-    public static final ArrayList<String> listValues = new ArrayList<>();
-    public static ArrayAdapter<String> adapter;
+    public NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = findViewById(R.id.listView);
-        button = findViewById(R.id.button);
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listValues);
-        listView.setAdapter(adapter);
-
-
-        Observable<View> clickEventObservable = Observable.create(subscriber -> {
-                    button.setOnClickListener(view -> subscriber.onNext(view));
-                }
-        );
-
-        clickEventObservable
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(MyObserverForButtonClick.observerClickEvent);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
 
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
