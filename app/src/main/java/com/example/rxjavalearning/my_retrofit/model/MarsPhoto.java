@@ -1,4 +1,4 @@
-package com.example.rxjavalearning.model;
+package com.example.rxjavalearning.my_retrofit.model;
 
 import com.google.gson.annotations.SerializedName;
 

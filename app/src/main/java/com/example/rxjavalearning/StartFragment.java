@@ -1,4 +1,4 @@
-package com.example.rxjavalearning.view;
+package com.example.rxjavalearning;
 
 import android.os.Bundle;
 

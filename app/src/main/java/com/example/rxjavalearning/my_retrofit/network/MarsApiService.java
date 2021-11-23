@@ -1,16 +1,9 @@
-package com.example.rxjavalearning.network;
+package com.example.rxjavalearning.my_retrofit.network;
 
 
-import com.example.rxjavalearning.model.MarsPhoto;
-
-import java.util.List;
-
-import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
-import retrofit2.http.GET;
-import com.google.gson.*;
 
 public class MarsApiService {
 
@@ -21,8 +14,9 @@ public class MarsApiService {
 
     private MarsApiService(){
         retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
     }
 
@@ -36,8 +30,8 @@ public class MarsApiService {
 
 
 
-    public MarsApi getJSONApi(){
-        return retrofit.create(MarsApi.class);
+    public MarsPhotoApi getJSONApi(){
+        return retrofit.create(MarsPhotoApi.class);
     }
 
 

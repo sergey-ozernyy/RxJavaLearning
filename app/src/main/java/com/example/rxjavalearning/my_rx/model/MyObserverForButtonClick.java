@@ -1,12 +1,8 @@
-package com.example.rxjavalearning.model;
+package com.example.rxjavalearning.my_rx.model;
 
-import android.app.Application;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.rxjavalearning.MainActivity;
-import com.example.rxjavalearning.view.RxButtonClickFragment;
+import com.example.rxjavalearning.my_rx.view.RxButtonClickFragment;
 
 import java.time.Instant;
 

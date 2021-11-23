@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.rxjavalearning.view.StartFragment"
+        android:name="com.example.rxjavalearning.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/marsPhotosFragment"
-        android:name="com.example.rxjavalearning.view.MarsPhotosFragment"
+        android:name="com.example.rxjavalearning.my_retrofit.view.MarsPhotosFragment"
         android:label="fragment_mars_photos"
         tools:layout="@layout/fragment_mars_photos" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/rxButtonClickFragment"
-        android:name="com.example.rxjavalearning.view.RxButtonClickFragment"
+        android:name="com.example.rxjavalearning.my_rx.view.RxButtonClickFragment"
         android:label="RxButtonClickFragment" >
         <action
             android:id="@+id/action_rxButtonClickFragment_to_startFragment"

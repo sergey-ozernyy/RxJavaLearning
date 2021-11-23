@@ -5,7 +5,7 @@
       <map>
         <entry key="../../Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.17958459979736577" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_mars_photos.xml" value="0.16111111111111112" />
+        <entry key="app/src/main/res/layout/fragment_mars_photos.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_rx_button_click.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.33" />
       </map>

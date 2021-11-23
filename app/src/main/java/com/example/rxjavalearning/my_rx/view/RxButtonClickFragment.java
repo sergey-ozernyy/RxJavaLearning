@@ -1,4 +1,4 @@
-package com.example.rxjavalearning.view;
+package com.example.rxjavalearning.my_rx.view;
 
 import android.os.Bundle;
 
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.rxjavalearning.R;
-import com.example.rxjavalearning.model.MyObserverForButtonClick;
+import com.example.rxjavalearning.my_rx.model.MyObserverForButtonClick;
 
 import java.util.ArrayList;
 
