@@ -13,8 +13,14 @@ import android.view.ViewGroup;
 
 import com.example.rxjavalearning.R;
 import com.example.rxjavalearning.my_retrofit.model.MarsPhoto;
+import com.example.rxjavalearning.my_retrofit.network.MarsApiService;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.observers.DisposableSingleObserver;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class MarsPhotoGalleryFragment extends Fragment {
@@ -22,10 +28,12 @@ public class MarsPhotoGalleryFragment extends Fragment {
     private RecyclerView photoRecyclerView;
     private MarsPhotoAdapter photoAdapter;
 
+    List<MarsPhoto> photos;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getRequest();
     }
 
     @Override
@@ -37,14 +45,38 @@ public class MarsPhotoGalleryFragment extends Fragment {
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         photoRecyclerView.setLayoutManager(gridLayoutManager);
 
-        updateUI();
+        //updateUI();
 
         return view;
     }
 
     private void updateUI(){
-        List<MarsPhoto> photos = null;//!!!!!
         photoAdapter = new MarsPhotoAdapter(photos);
         photoRecyclerView.setAdapter(photoAdapter);
     }
+
+
+    private void getRequest(){
+        MarsApiService.getInstance()
+                .getJSONApi()
+                .getPhotos()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableSingleObserver<List<MarsPhoto>>() {
+                    @Override
+                    public void onSuccess(List<MarsPhoto> value) {
+                        List<MarsPhoto> loadedPhotos = value.stream()
+                                .limit(15)
+                                .collect(Collectors.toList());
+                        photos.addAll(loadedPhotos);
+                        updateUI();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
+    }
+
 }
