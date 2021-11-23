@@ -34,7 +34,10 @@ public class StartFragment extends Fragment {
         goToRetrofitButton = view.findViewById(R.id.go_to_retrofit_fragment_button);
         goToRxJavaButton = view.findViewById(R.id.go_to_rx_fragment_button);
 
-        goToRetrofitButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_startFragment_to_marsPhotosFragment));
+        goToRetrofitButton.setOnClickListener(Navigation.createNavigateOnClickListener(
+                //R.id.action_startFragment_to_marsPhotosFragment
+                R.id.action_startFragment_to_marsPhotoGalleryFragment
+        ));
         goToRxJavaButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_startFragment_to_rxButtonClickFragment));
 
         return view;
