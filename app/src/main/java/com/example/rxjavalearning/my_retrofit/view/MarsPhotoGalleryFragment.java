@@ -44,6 +44,8 @@ public class MarsPhotoGalleryFragment extends Fragment {
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         photoRecyclerView.setLayoutManager(gridLayoutManager);
 
+        updateUI();
+
         return view;
     }
 

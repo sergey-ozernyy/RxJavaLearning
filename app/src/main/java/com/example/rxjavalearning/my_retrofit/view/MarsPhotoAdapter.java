@@ -1,22 +1,36 @@
 package com.example.rxjavalearning.my_retrofit.view;
 
+import static com.example.rxjavalearning.my_retrofit.model.ImageLoader.imageDownload;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.rxjavalearning.MainActivity;
 import com.example.rxjavalearning.R;
 import com.example.rxjavalearning.my_retrofit.model.MarsPhoto;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class MarsPhotoAdapter extends RecyclerView.Adapter<MarsPhotoAdapter.MarsPhotoHolder> {
     private List<MarsPhoto> photos;
+
+
+    private final static String key = "KEY";
 
     public MarsPhotoAdapter(List<MarsPhoto> photos){
         this.photos = photos;
@@ -34,7 +48,8 @@ public class MarsPhotoAdapter extends RecyclerView.Adapter<MarsPhotoAdapter.Mars
 
         public void bind(MarsPhoto photo){
             this.photo = photo;
-            imageDownload(imageView, photo.getImg_src());
+            imageDownload(imageView, photo.getImg_src(), false);
+
         }
 
     }
@@ -43,6 +58,7 @@ public class MarsPhotoAdapter extends RecyclerView.Adapter<MarsPhotoAdapter.Mars
     @NonNull
     @Override
     public MarsPhotoAdapter.MarsPhotoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         return new MarsPhotoAdapter.MarsPhotoHolder(layoutInflater, parent);
     }
@@ -52,12 +68,13 @@ public class MarsPhotoAdapter extends RecyclerView.Adapter<MarsPhotoAdapter.Mars
         MarsPhoto photo = photos.get(position);
         holder.bind(photo);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Просмотр изображения во весь экран или еще что-то
-            }
-        });
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(key, photo);
+        //Положить в Bundle изображение, по которому кликнули и его id (тк нет названия)
+
+        holder.itemView.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_marsPhotoGalleryFragment_to_marsPhotoFragment, bundle));
+
+
     }
 
 
@@ -66,25 +83,6 @@ public class MarsPhotoAdapter extends RecyclerView.Adapter<MarsPhotoAdapter.Mars
         return this.photos.size();
     }
 
-    public static void imageDownload(ImageView imageView, String url){
-        Picasso.get()
-                .load(url)
-                .placeholder(R.drawable.ic_loading_mars_photo)
-                .error(R.drawable.ic_error_loading_mars_photo)
-                .fit()
-                .centerCrop()
-                .into(imageView, new Callback() {
-                    @Override
-                    public void onSuccess() {
 
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-                        e.printStackTrace();
-                    }
-                });
-
-    }
 
 }
