@@ -14,20 +14,8 @@
             android:id="@+id/action_startFragment_to_rxButtonClickFragment"
             app:destination="@id/rxButtonClickFragment" />
         <action
-            android:id="@+id/action_startFragment_to_marsPhotosFragment"
-            app:destination="@id/marsPhotosFragment" />
-        <action
             android:id="@+id/action_startFragment_to_marsPhotoGalleryFragment"
             app:destination="@id/marsPhotoGalleryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/marsPhotosFragment"
-        android:name="com.example.rxjavalearning.my_retrofit.view.MarsPhotosFragment"
-        android:label="fragment_mars_photos"
-        tools:layout="@layout/fragment_mars_photos" >
-        <action
-            android:id="@+id/action_marsPhotosFragment_to_startFragment"
-            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/rxButtonClickFragment"
