@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rxjavalearning.R;
 import com.example.rxjavalearning.my_retrofit.model.MarsPhoto;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class MarsPhotoAdapter extends RecyclerView.Adapter<MarsPhotoAdapter.Mars
 
         public void bind(MarsPhoto photo){
             this.photo = photo;
-           // imageView.setImageURI(@tools:sample/backgrounds/scenic);//брать фотку из photo.getImg_src()
+            imageDownload(imageView, photo.getImg_src());
         }
 
     }
@@ -63,4 +65,26 @@ public class MarsPhotoAdapter extends RecyclerView.Adapter<MarsPhotoAdapter.Mars
     public int getItemCount() {
         return this.photos.size();
     }
+
+    public static void imageDownload(ImageView imageView, String url){
+        Picasso.get()
+                .load(url)
+                .placeholder(R.drawable.ic_loading_mars_photo)
+                .error(R.drawable.ic_error_loading_mars_photo)
+                .fit()
+                .centerCrop()
+                .into(imageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+
+    }
+
 }

@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.rxjavalearning.R;
-
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 
 public class StartFragment extends Fragment {

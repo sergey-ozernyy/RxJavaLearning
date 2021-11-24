@@ -7,14 +7,19 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.rxjavalearning.R;
 import com.example.rxjavalearning.my_retrofit.model.MarsPhoto;
 import com.example.rxjavalearning.my_retrofit.network.MarsApiService;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +33,7 @@ public class MarsPhotoGalleryFragment extends Fragment {
     private RecyclerView photoRecyclerView;
     private MarsPhotoAdapter photoAdapter;
 
-    List<MarsPhoto> photos;
+    List<MarsPhoto> photos = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,8 +49,6 @@ public class MarsPhotoGalleryFragment extends Fragment {
         photoRecyclerView = (RecyclerView) view.findViewById(R.id.photo_recycler_view);
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         photoRecyclerView.setLayoutManager(gridLayoutManager);
-
-        //updateUI();
 
         return view;
     }
