@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.rxjavalearning.R;
-
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 
 public class StartFragment extends Fragment {
@@ -34,7 +36,9 @@ public class StartFragment extends Fragment {
         goToRetrofitButton = view.findViewById(R.id.go_to_retrofit_fragment_button);
         goToRxJavaButton = view.findViewById(R.id.go_to_rx_fragment_button);
 
-        goToRetrofitButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_startFragment_to_marsPhotosFragment));
+        goToRetrofitButton.setOnClickListener(Navigation.createNavigateOnClickListener(
+                R.id.action_startFragment_to_marsPhotoGalleryFragment
+        ));
         goToRxJavaButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_startFragment_to_rxButtonClickFragment));
 
         return view;

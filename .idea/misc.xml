@@ -4,10 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.17958459979736577" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.22291666666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_mars_photo.xml" value="0.3383152173913043" />
+        <entry key="app/src/main/res/layout/fragment_mars_photo_gallery.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/fragment_mars_photos.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_rx_button_click.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/recyclerview_item_for_mars_photos.xml" value="0.18" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>

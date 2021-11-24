@@ -14,17 +14,8 @@
             android:id="@+id/action_startFragment_to_rxButtonClickFragment"
             app:destination="@id/rxButtonClickFragment" />
         <action
-            android:id="@+id/action_startFragment_to_marsPhotosFragment"
-            app:destination="@id/marsPhotosFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/marsPhotosFragment"
-        android:name="com.example.rxjavalearning.my_retrofit.view.MarsPhotosFragment"
-        android:label="fragment_mars_photos"
-        tools:layout="@layout/fragment_mars_photos" >
-        <action
-            android:id="@+id/action_marsPhotosFragment_to_startFragment"
-            app:destination="@id/startFragment" />
+            android:id="@+id/action_startFragment_to_marsPhotoGalleryFragment"
+            app:destination="@id/marsPhotoGalleryFragment" />
     </fragment>
     <fragment
         android:id="@+id/rxButtonClickFragment"
@@ -33,5 +24,26 @@
         <action
             android:id="@+id/action_rxButtonClickFragment_to_startFragment"
             app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/marsPhotoGalleryFragment"
+        android:name="com.example.rxjavalearning.my_retrofit.view.MarsPhotoGalleryFragment"
+        android:label="fragment_mars_photo_gallery"
+        tools:layout="@layout/fragment_mars_photo_gallery" >
+        <action
+            android:id="@+id/action_marsPhotoGalleryFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_marsPhotoGalleryFragment_to_marsPhotoFragment"
+            app:destination="@id/marsPhotoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/marsPhotoFragment"
+        android:name="com.example.rxjavalearning.my_retrofit.view.MarsPhotoFragment"
+        android:label="fragment_mars_photo"
+        tools:layout="@layout/fragment_mars_photo" >
+        <action
+            android:id="@+id/action_marsPhotoFragment_to_marsPhotoGalleryFragment"
+            app:destination="@id/marsPhotoGalleryFragment" />
     </fragment>
 </navigation>
