@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/timerFragment">
 
     <fragment
         android:id="@+id/startFragment"
@@ -46,4 +46,12 @@
             android:id="@+id/action_marsPhotoFragment_to_marsPhotoGalleryFragment"
             app:destination="@id/marsPhotoGalleryFragment" />
     </fragment>
+    <activity
+        android:id="@+id/testComposeActivity"
+        android:name="com.example.rxjavalearning.my_compose.TestComposeActivity"
+        android:label="TestComposeActivity" />
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.example.rxjavalearning.my_timer.TimerFragment"
+        android:label="TimerFragment" />
 </navigation>

@@ -32,6 +32,7 @@ public class MarsPhotoGalleryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         getRequest();
     }
 
@@ -43,6 +44,8 @@ public class MarsPhotoGalleryFragment extends Fragment {
         photoRecyclerView = (RecyclerView) view.findViewById(R.id.photo_recycler_view);
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         photoRecyclerView.setLayoutManager(gridLayoutManager);
+
+
 
         updateUI();
 
@@ -65,7 +68,7 @@ public class MarsPhotoGalleryFragment extends Fragment {
                     @Override
                     public void onSuccess(List<MarsPhoto> value) {
                         List<MarsPhoto> loadedPhotos = value.stream()
-                                .limit(15)
+                                .limit(31)
                                 .collect(Collectors.toList());
                         photos.addAll(loadedPhotos);
                         updateUI();
